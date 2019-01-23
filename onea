@@ -67,8 +67,15 @@ main:- tests, testNepotism.
 % Hints: if you stay above 700 then the standard arithmetics can be inside 
 % Hints: for trivial little prefix, ostfix markers, use 1
 
-:- op(902,xfx,  if).
-:- op(901,xfx,  then).
+:- op(902, xfx,  if).
+:- op(901, xfx,  then).
+:- op(701, fx, rule).
+:- op(800, xfy, and).
+:- op(801, xfy, or).
+:- op(702, fx, not).
+:- op(703, xfy, had).
+:- op(704, xfx,  in).
+:- op(705, xfy, has).
 
 rule1 if a then b.
 
