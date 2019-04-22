@@ -11,13 +11,14 @@ Auto10=cat $(Test)/data/auto10000.csv
 Auto1M=cat $(Test)/data/auto1M.csv
 Weather=cat $(Test)/data/auto.csv
 DSL= dsl/monte_carlo -n 2000 -s 1729 -v False| dsl/brooks2
-DSL2 = dsl/monte_carlo -n 1 -s 1729
-DSL3 = java -jar monte_carlo.jar -n 1 -s 1729
+DSL2 = dsl/monte_carlo -n 10 -s 1729
+DSL3 = java -jar monte_carlo.jar -n 2000 -s 1729 -v False| dsl/brooks2
 
 ok:; @bash $(Etc)/lua2bin
 
 eg20:  ok; @$(hi); $(DSL) 
 eg0:  ok; @$(hi); $(DSL) | dom | bestrest | super | rank
+eg0c: ok; @$(hi); $(DSL3) | dom | bestrest | super | rank
 eg0a: ok; @$(hi); $(DSL) | dom | bestrest | super
 eg0b: ok; @$(hi); $(DSL) 
 egm:  ok; @$(hi); $(DSL2)

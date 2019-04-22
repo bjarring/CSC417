@@ -33,12 +33,14 @@ class MonteCarlo(names: Array<String>) {
 
 
     fun generator(iters: Int, verbose: Boolean, seed: Int) {
+        val rand = Random(seed)
+
         for (i in 1..iters) {
             var row = "{"
             builder.attrs.forEach { a ->
                 val min = a.component2().get("min").toString().toDouble()
                 val max = a.component2().get("max").toString().toDouble()
-                val r = Random(seed).nextDouble(min, max).round(2)
+                val r = rand.nextDouble(min, max).round(2)
                 row += "'" + (a.component1() + "': " + r + ", ")
             }
             row += "'verbose': ${verbose.toString().capitalize()}}"
